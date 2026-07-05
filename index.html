@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, initial-scale=0.3, maximum-scale=2.0, user-scalable=yes">
+    <title>𝖒 𝖎 𝖓 𝖙.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <canvas id="trail-canvas"></canvas>
+    <div id="entry-screen">
+        <div class="entry-text">bac ha cte.</div>
+    </div>
+    <video autoplay muted loop id="bg-video">
+        <source src="background.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <audio id="music-track-1" src="sweetboy.mp3" data-title="Sweet Boy — Malcolm Todd" data-icon="assets/flower.png" loop></audio>
+    <audio id="music-track-2" src="lovemenot.mp3" data-title="Love Me Not — Ravyn Lenae " data-icon="assets/flower2.png" loop></audio>
+    <div class="bio-container">
+    <svg class="border-glow-svg">
+        <defs>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                </feMerge>
+            </filter>
+        </defs>
+        <rect class="glow-rect base-line" width="100%" height="100%" rx="24" ry="24" pathLength="1000"></rect>
+        <rect class="glow-rect neon-glow" width="100%" height="100%" rx="24" ry="24" pathLength="1000" filter="url(#glow)"></rect>
+    </svg>
+        <div class="profile-header-row">
+            <div class="header-left-info">
+
+<div class="title-wrapper">
+    <h1 class="bio-title">m i n t</h1>
+<div class="badges-container">
+    <span class="badge-wrapper" data-tooltip="this is my nitro rank >:0">
+        <img src="badge/nitro.png" alt="Badge 1" class="badge-icon">
+    </span>
+    <span class="badge-wrapper" data-tooltip="i am from hypersquad bravery">
+        <img src="badge/hypersquad.png" alt="Badge 2" class="badge-icon">
+    </span>
+    <span class="badge-wrapper" data-tooltip="i boost servers >:3">
+        <img src="badge/boost.png" alt="Badge 3" class="badge-icon">
+    </span>
+    <span class="badge-wrapper" data-tooltip="Completed A LOT of quests">
+        <img src="badge/quest.png" alt="Badge 4" class="badge-icon">
+    </span>
+</div>
+</div>
+                <p class="subtitle">love.</p>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> ミント.</p>
+
+                <div class="social-links">
+                    <a href="https://open.spotify.com/user/31hods3abk7uvq4e4ucaq5snz6ui?si=gKwoeUdpSRA6utrhSgGTvBg&nd=1&dlsi=0e5d45a432a54314" target="_blank">
+                        <img src="assets/spotify.png" alt="Spotify" class="custom-icon">
+                    </a>
+                    <a href="https://discord.com/users/1276859709235658804" target="_blank">
+                        <img src="assets/discord.png" alt="Discord" class="custom-icon">
+                    </a>
+                    <a href="https://www.facebook.com/mint.0010" target="_blank">
+                        <img src="assets/facebook.png" alt="Facebook" class="custom-icon">
+                    </a>
+                </div>
+            </div>
+
+            <div class="avatar-container">
+                <img id="discord-avatar" src="https://i.imgur.com/link-anh-mac-dinh.png" alt="Avatar">
+            </div>
+        </div>
+
+        <div class="cards-row">
+            <div class="discord-card">
+                <div class="discord-info">
+                    <div class="avatar-status-wrapper">
+                        <img id="card-avatar" src="" alt="">
+                        <div id="status-dot"></div>
+                    </div>
+                    <div class="discord-text">
+                        <div class="discord-name-badges">
+                            <span id="discord-username">Loading...</span>
+                        </div>
+                        <p id="discord-activity">Idling</p>
+                        <p id="discord-details"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-note-card">
+                <h3 class="note-title"><i class="far fa-sticky-note"></i> my notes.</h3>
+                <p class="note-content">
+                    nguoi con gai dang yeu ngo ngang.<br>
+                </p>
+            </div>
+        </div>
+        
+        <!-- Music Player phiên bản nâng cấp chuẩn chỉ tỉ lệ xịn -->
+        <div class="music-player">
+            <!-- Khối bên trái: Ảnh đĩa nhạc hình tròn (Đã thêm ID để JS tự thay đổi icon) -->
+            <div class="player-left-disk">
+                <img src="assets/flower.png" alt="Music Icon" class="player-icon" id="player-disk-img">
+            </div>
+
+            <!-- Khối bên phải: Chứa tên bài, thanh thời gian và cụm nút bấm -->
+            <div class="player-right-controls">
+                <!-- ĐÃ SỬA: Thêm id="song-title" để JavaScript nhận diện đổi chữ ngẫu nhiên -->
+                <div class="song-title" id="song-title">Loading Song...</div>
+                
+                <div class="progress-row">
+                    <span id="current-time">0:00</span>
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <span id="duration-time">0:00</span>
+                </div>
+
+                <div class="controls-and-volume-row">
+                    <!-- 1. Cụm nút điều khiển nằm bên TRÁI -->
+                    <div class="player-controls">
+                        <button class="control-btn"><i class="fas fa-step-backward"></i></button>
+                        <button class="control-btn play-pause-btn" id="player-play-btn"><i class="fas fa-pause"></i></button>
+                        <button class="control-btn"><i class="fas fa-step-forward"></i></button>
+                    </div>
+                    
+                    <!-- 2. Thanh âm lượng nằm bên PHẢI, kéo DÀI sang bên trái tiến sát nút Next -->
+                    <div class="volume-container">
+                        <i class="fas fa-volume-up volume-icon" id="player-volume-icon" style="cursor: pointer;"></i>
+                        <div class="volume-slider-bg" id="volume-slider-bg">
+                            <div class="volume-slider-bar" id="volume-slider-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <div class="custom-view-counter">
+            <i class="far fa-eye"></i> <span>2,108</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
